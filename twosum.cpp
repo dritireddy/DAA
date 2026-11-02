@@ -1,33 +1,42 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-vector<int> twoSum(vector<int>&arr,int target){
-    unordered_map<int,int>map;
-    for(int i =0;i<arr.size();i++){
-        int complement=target-arr[i];
-        if(map.find(complement)!=map.end()){
-            return{ map[complement],i};
+vector<int> twosum(vector<int> &arr, int tar)
+{
+    
+	unordered_map<int, int> map;
+    for (int i = 0; i < arr.size(); i++)
+    {
+        int com = tar - arr[i];
+        if (map.find(complement) != map.end())
+        {
+            return (map[com], i);
         }
-        map[arr[i]]=i;
+        map[arr[i]] = i;
     }
-    return{};
+    return {};
 }
-int main(){
+int main()
+{
     int n;
-    cout<<"enter number of elementd:";
-    cin>>n;
+    cout << "Enter No of Elements : ";
+    cin >> n;
     vector<int> arr(n);
-    cout<<"enter"<<n<<"elements:";
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+    cout << "Enter " << n << "Elemnts : ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
     }
-    int target;
-    cout<<"enter the target sum:";
-    cin>>target;
-    vector<int> result=twoSum(arr,target);
-    if(result.empty()){
-        cout<<"no valid pair found."<<endl;
-    }else{
-       cout<<"indices:"<<result[0]<<","<<result[1]<<endl;
+    int t;
+    cout << "Enter The Target Sum to Find : ";
+    cin >> t;
+    vector<int> res = twosum(arr, t);
+    if (res.empty())
+    {
+        cout << "There is No Such Pair Which adds up to " << t;
+    }
+    else
+    {
+        cout << "The Indices are : " << res[1];
     }
     return 0;
 }
